@@ -11,10 +11,9 @@ import { ConfigModule } from '@nestjs/config';
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      url: process.env.DATABASE_URL,
       username: 'root',
-      password: 'root',
-      database: 'test',
+      password: 'password',
+      database: 'fabidatabase',
       entities: [],
       synchronize: true,
     })

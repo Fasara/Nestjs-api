@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { CourseModule } from './course/course.module';
+import { CourseEntity } from './course/models/course.entity';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { CourseModule } from './course/course.module';
       username: 'root',
       password: 'password',
       database: 'fabidatabase',
-      entities: [],
+      entities: [CourseEntity],
       synchronize: true, //you shoudn't use in production or you might lose data
     }),
     CourseModule

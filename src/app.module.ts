@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { CourseModule } from './course/course.module';
 
 @Module({
   imports: [
@@ -15,8 +16,9 @@ import { ConfigModule } from '@nestjs/config';
       password: 'password',
       database: 'fabidatabase',
       entities: [],
-      synchronize: true,
-    })
+      synchronize: true, //you shoudn't use in production or you might lose data
+    }),
+    CourseModule
   ],
   controllers: [AppController],
   providers: [AppService],

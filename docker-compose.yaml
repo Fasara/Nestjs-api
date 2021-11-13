@@ -4,6 +4,8 @@ services:
       image: mysql
       ports:
         - "3306:3306"
+      security_opt:
+        - seccomp:unconfined
       volumes:
         - ./docker/data/mysql:/var/lib/mysql
       environment:

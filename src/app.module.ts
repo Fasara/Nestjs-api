@@ -9,16 +9,7 @@ import { CourseEntity } from './course/models/course.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'password',
-      database: 'fabidatabase',
-      entities: [CourseEntity],
-      synchronize: true, //you shoudn't use in production or you might lose data
-    }),
+    TypeOrmModule.forRoot(),
     CourseModule
   ],
   controllers: [AppController],

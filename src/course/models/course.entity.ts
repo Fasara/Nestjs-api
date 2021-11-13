@@ -12,4 +12,7 @@ export class CourseEntity {
     @Column()
     CourseLogo: string;
 
+    @Column()
+    CourseStatus: string;
+
 }

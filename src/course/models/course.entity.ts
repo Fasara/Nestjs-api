@@ -3,16 +3,24 @@ import { Entity, PrimaryColumn, Column } from "typeorm";
 @Entity()
 export class CourseEntity {
 
-    @PrimaryColumn()
+    @PrimaryColumn({
+        type: "int"
+    })
     CourseId: number;
 
-    @Column()
+    @Column({
+        type: "varchar"
+    })
     CourseName: string;
 
-    @Column()
+    @Column({
+        type: "varchar"
+    })
     CourseLogo: string;
 
-    @Column()
+    @Column({
+        type: "varchar"
+    })
     CourseStatus: string;
 
 }

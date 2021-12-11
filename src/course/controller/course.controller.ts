@@ -1,12 +1,12 @@
 import { Controller, Get, Post, Put, Param, Body } from '@nestjs/common';
-import { CreateCourseDto, UpdateCourseDto, FindCourseResponseDto } from '../dto/course.dto';
+import { CreateCourseDto, UpdateCourseDto, FindCourseResponseDto } from '../models/dto/course.dto';
 @Controller('courses')
 export class CourseController {
-    @Get()
-    getCourses(): FindCourseResponseDto[] {
-        return "All courses"
-        //extract the actual courses
-    }
+    // @Get()
+    // getCourses(): FindCourseResponseDto{
+    //     return "All courses"
+    //     //extract the actual courses
+    // }
 
     @Get('/:courseId ')
     getCourseById( @Param('courseId') courseId : number

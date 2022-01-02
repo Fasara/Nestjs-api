@@ -1,12 +1,16 @@
 import { Controller, Get, Post, Put, Param, Body } from '@nestjs/common';
 import { CreateCourseDto, UpdateCourseDto, FindCourseResponseDto } from '../models/dto/course.dto';
+import { CourseService } from '../service/course.service';
+import { CourseEntity } from '../models/course.entity';
 @Controller('courses')
 export class CourseController {
-    // @Get()
-    // getCourses(): FindCourseResponseDto{
-    //     return "All courses"
-    //     //extract the actual courses
-    // }
+    constructor(private readonly courseService: CourseService) {}
+
+    @Get()
+    async findAllCourses(): Promise<CourseEntity[]> {
+        return await this.courseService.findAllCourses();
+    }
+    
 
     @Get('/:courseId ')
     getCourseById( @Param('courseId') courseId : number

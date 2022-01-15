@@ -1,7 +1,7 @@
 import { EntityRepository, Repository } from "typeorm";
 import { Course } from "./course.entity";
 import { FindCourseResponseDto } from '../models/dto/course.dto';
-import { CourseStatus } from '../models/course-status.enum';
+import { CourseStatus } from '../models/course-status.enum'; 
 import { CreateCourseDto } from '../models/dto/course.dto';
 
 @EntityRepository(Course)

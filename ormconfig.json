@@ -6,7 +6,7 @@
     "password": "password",
     "database": "fabidatabase",
     "entities": ["dist/**/*.entity{.ts,.js}"],
-    "synchronize": false,
+    "synchronize": true,
     "migrationsRun": false
 
 }

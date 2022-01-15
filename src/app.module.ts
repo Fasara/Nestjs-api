@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { CourseModule } from './course/course.module';
-import { CourseEntity } from './course/models/course.entity';
+import { Course } from './course/models/course.entity';
 
 @Module({
   imports: [

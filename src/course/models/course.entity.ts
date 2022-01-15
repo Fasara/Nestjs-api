@@ -1,26 +1,15 @@
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class CourseEntity {
+export class Course {
 
-    @PrimaryColumn({
-        type: "int"
-    })
-    CourseId: number;
+	@PrimaryGeneratedColumn()
+	id: number;
 
-    @Column({
-        type: "varchar"
-    })
-    CourseName: string;
+	@Column()
+	name: string;
 
-    @Column({
-        type: "varchar"
-    })
-    CourseLogo: string;
-
-    @Column({
-        type: "varchar"
-    })
-    CourseStatus: string;
+	@Column()
+	status: string;
 
 }

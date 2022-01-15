@@ -7,8 +7,8 @@ import { CourseRepository  } from './models/course.repository';
 
 
 @Module({
-  providers: [CourseService],
   imports: [TypeOrmModule.forFeature([CourseRepository])],
-  controllers: [CourseController]
+  controllers: [CourseController],
+  providers: [CourseService]
 })
 export class CourseModule {}

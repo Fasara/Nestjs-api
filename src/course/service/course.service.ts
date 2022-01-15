@@ -1,18 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CourseEntity } from '../models/course.entity';
+import { Course } from '../models/course.entity';
 import { CourseRepository } from '../models/course.repository';
+import { FindCourseResponseDto } from '../models/dto/course.dto';
+import { CreateCourseDto } from '../models/dto/course.dto';
+import { CourseStatus } from '../models/course-status.enum';
+
 
 @Injectable()
 export class CourseService {
 
-    constructor(
-        @InjectRepository(CourseRepository) private courseRepository: CourseRepository
-    ) {}
+	constructor(
+		@InjectRepository(CourseRepository) private courseRepository: CourseRepository
+	) { }
 
-    findAllCourses(): Promise<CourseEntity[]>{
-        return this.courseRepository.find();
-    }
+	// findAllCourses(): Promise<Course[]> {
+	//     return this.courseRepository.find(FindCourseResponseDto);
+	// }
+
+	addCourse(createCourseDto: CreateCourseDto): Promise<Course> {
+		return this.courseRepository.addCourse(createCourseDto);
+	}
 }
 
 

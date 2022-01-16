@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Course } from '../models/course.entity';
 import { CourseRepository } from '../models/course.repository';
-import { FindCourseResponseDto } from '../models/dto/course.dto';
-import { CreateCourseDto } from '../models/dto/course.dto';
+import { FindCourseResponseDto } from '../models/dto/find-course.dto';
+import { CreateCourseDto } from '../models/dto/create-course.dto';
 import { CourseStatus } from '../models/course-status.enum';
 
 

@@ -1,16 +1,6 @@
-export class FindCourseResponseDto {
-    id: number;
-    title: string;
-    status: string;
-}
+import { isNotEmpty } from "class-validator";
 
-export class CreateCourseDto {
-    id: number
-    title: string;
-    status?: string;
-}
 
-export class UpdateCourseDto {
-    title: string;
-    status: string;
-}
+
+
+

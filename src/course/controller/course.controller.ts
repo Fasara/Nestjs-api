@@ -3,7 +3,9 @@ import { Controller, Get, Post, Put, Param, Body } from '@nestjs/common';
 //Services
 import { CourseService } from '../service/course.service';
 
-import { CreateCourseDto, UpdateCourseDto, FindCourseResponseDto } from '../models/dto/course.dto';
+import { CreateCourseDto } from '../models/dto/create-course.dto';
+import { UpdateCourseDto } from '../models/dto/update-course.dto';
+import { FindCourseResponseDto } from '../models/dto/find-course.dto';
 import { Course } from '../models/course.entity';
 
 @Controller('courses')

@@ -4,12 +4,12 @@ import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 export class Course {
 
 	@PrimaryGeneratedColumn()
-	id: number;
+		id: number;
 
 	@Column()
-	name: string;
+		title: string;
 
 	@Column()
-	status: string;
-
+		status: string;
+		
 }

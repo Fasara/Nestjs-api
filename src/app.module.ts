@@ -4,11 +4,10 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { CourseModule } from './course/course.module';
-import { Course } from './course/models/course.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true }), //This line will automatically load the .env file from the root of the project
     TypeOrmModule.forRoot(),
     CourseModule
   ],

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Course } from '../models/course.entity';
 import { CourseRepository } from '../models/course.repository';
@@ -18,8 +18,31 @@ export class CourseService {
 	//     return this.courseRepository.find(FindCourseResponseDto);
 	// }
 
-	addCourse(createCourseDto: CreateCourseDto): Promise<Course> {
-		return this.courseRepository.addCourse(createCourseDto);
+	async getCourseById(id: string): Promise<Course> {
+		const courseId = await this.courseRepository.findOne(id);
+
+		if(!id) {
+			throw new NotFoundException(`Task with ID "${id}" not found`);
+		}
+	
+		return courseId;
+	}
+
+
+	/*
+	1. We create the object based on the repository
+	2. Then the repositry will hand;e the operation of saving it in the database
+	 */
+	async addNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
+		const { id, title, status } = createCourseDto;
+		const course = this.courseRepository.create({
+			id,
+			title,
+			status: CourseStatus.OPEN,
+		});
+
+		await this.courseRepository.save(course);
+		return course;
 	}
 }
 

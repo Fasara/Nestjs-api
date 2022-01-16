@@ -1,15 +1,16 @@
 export class FindCourseResponseDto {
     id: number;
-    name: string;
+    title: string;
     status: string;
 }
 
 export class CreateCourseDto {
-    name: string;
-    status: string;
+    id: number
+    title: string;
+    status?: string;
 }
 
 export class UpdateCourseDto {
-    name: string;
+    title: string;
     status: string;
 }

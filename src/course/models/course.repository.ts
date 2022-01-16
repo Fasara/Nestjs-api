@@ -7,16 +7,17 @@ import { CreateCourseDto } from '../models/dto/course.dto';
 @EntityRepository(Course)
 export class CourseRepository extends Repository<Course> {
 
-	async addCourse(createCourseDto: CreateCourseDto): Promise<Course> {
-		const { name, status } = createCourseDto;
-		//create the course and return it. This is how you create a course based on the repository
-		//you need to provide an oject with the same properties of the entity 
-		const course = this.create({
-			name,
-			status: CourseStatus.OPEN
-		});
-		await this.save(course);
-		return course;
-	}
+	// async addNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
+	// 	const { id, name, status } = createCourseDto;
+	// 	//create the course and return it. This is how you create a course based on the repository
+	// 	//you need to provide an oject with the same properties of the entity 
+	// 	const course = this.create({
+	// 		id,
+	// 		name,
+	// 		status: CourseStatus.OPEN
+	// 	});
+	// 	await this.save(course);
+	// 	return course;
+	// }
 
 }

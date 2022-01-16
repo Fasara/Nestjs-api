@@ -16,16 +16,14 @@ export class CourseController {
     // }
     
 
-    @Get('/:courseId ')
-    getCourseById( @Param('courseId') courseId : number
-    ) {
-        console.log(courseId);
-        return `Get course with Id of ${courseId}`
+    @Get('/:id')
+    getCourseById(@Param('id') id: string): Promise<Course> {
+        return this.courseService.getCourseById(id);
     }
 
     @Post()
     addCourse(@Body() createCourseDto: CreateCourseDto): Promise<Course> {
-        return this.courseService.addCourse(createCourseDto);
+        return this.courseService.addNewCourse(createCourseDto);
     }
 
     @Put('/:courseId')

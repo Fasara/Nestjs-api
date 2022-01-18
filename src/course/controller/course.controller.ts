@@ -19,7 +19,7 @@ export class CourseController {
     
 
     @Get('/:id')
-    getCourseById(@Param('id') id: string): Promise<Course> {
+    getCourseById(@Param('id') id: number): Promise<Course> {
         return this.courseService.getCourseById(id);
     }
 

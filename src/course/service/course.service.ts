@@ -14,24 +14,25 @@ export class CourseService {
 		@InjectRepository(CourseRepository) private courseRepository: CourseRepository
 	) { }
 
-	// findAllCourses(): Promise<Course[]> {
-	//     return this.courseRepository.find(FindCourseResponseDto);
-	// }
 
-	async getCourseById(id: string): Promise<Course> {
+	async getCourseById(id: number): Promise<Course> {
 		const courseId = await this.courseRepository.findOne(id);
 
-		if(!id) {
+		if(!courseId) {
 			throw new NotFoundException(`Task with ID "${id}" not found`);
 		}
 	
 		return courseId;
 	}
 
+		// findAllCourses(): Promise<Course[]> {
+	//     return this.courseRepository.find(FindCourseResponseDto);
+	// }
+
 
 	/*
 	1. We create the object based on the repository
-	2. Then the repositry will hand;e the operation of saving it in the database
+	2. Then the repositry will handle the operation of saving it in the database
 	 */
 	async addNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
 		const { id, title, status } = createCourseDto;
@@ -45,6 +46,3 @@ export class CourseService {
 		return course;
 	}
 }
-
-
-// the service fetch the data and interacts with the controller 

@@ -25,24 +25,12 @@ export class CourseService {
 		return courseId;
 	}
 
-		// findAllCourses(): Promise<Course[]> {
+	addNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
+		return this.courseRepository.addNewCourse(createCourseDto);
+	}
+
+	// findAllCourses(): Promise<Course[]> {
 	//     return this.courseRepository.find(FindCourseResponseDto);
 	// }
 
-
-	/*
-	1. We create the object based on the repository
-	2. Then the repositry will handle the operation of saving it in the database
-	 */
-	async addNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
-		const { id, title, status } = createCourseDto;
-		const course = this.courseRepository.create({
-			id,
-			title,
-			status: CourseStatus.OPEN,
-		});
-
-		await this.courseRepository.save(course);
-		return course;
-	}
 }

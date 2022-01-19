@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Param, Body, Delete } from '@nestjs/common';
 
 //Services
 import { CourseService } from '../service/course.service';
@@ -13,9 +13,9 @@ export class CourseController {
     constructor(private readonly courseService: CourseService) {}
 
     @Get()
-    // async findAllCourses(): Promise<Course[]> {
-    //     return await this.courseService.findAllCourses();
-    // }
+    getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<Course[]> {
+        return this.courseService.getAllCourses(findCourseResponseDto);
+    }
     
 
     @Get('/:id')
@@ -25,11 +25,17 @@ export class CourseController {
 
     @Post()
     addCourse(@Body() createCourseDto: CreateCourseDto): Promise<Course> {
-        return this.courseService.addNewCourse(createCourseDto);
+        return this.courseService.createNewCourse(createCourseDto);
     }
 
-    @Put('/:courseId')
+    @Delete('/:id')
+    deleteCourse(@Param('id') id: number): Promise<void> {
+        return this.courseService.deleteCourse(id);
+    }
+
+    @Put('/:id/status')
     updateCourses(
+        @Param('id') id: number,
         @Body() body: UpdateCourseDto
     ){
         return "Update courses by id"
@@ -37,4 +43,7 @@ export class CourseController {
     }
 }
 
-// TO-DO: get courses funciton => retrieve data from the database
+// Get all courses - done
+// Delete course - done
+// Create course - done
+// Get coure by ID - not working 

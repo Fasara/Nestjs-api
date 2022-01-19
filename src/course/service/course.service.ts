@@ -25,12 +25,30 @@ export class CourseService {
 		return courseId;
 	}
 
-	addNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
-		return this.courseRepository.addNewCourse(createCourseDto);
+	createNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
+		return this.courseRepository.createNewCourse(createCourseDto);
 	}
 
-	// findAllCourses(): Promise<Course[]> {
-	//     return this.courseRepository.find(FindCourseResponseDto);
-	// }
+	getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<Course[]> {
+	    return this.courseRepository.find(findCourseResponseDto);
+	}
+
+	async deleteCourse(id: number): Promise<void> {
+		const result = await this.courseRepository.delete(id);
+
+		if(result.affected === 0) {
+			throw new NotFoundException(`Task with ID ${id} not found`);
+		}
+	}
+
+	async updateCourse(id: number, status: CourseStatus): Promise<Course> {
+		const course = await this.getCourseById(id);
+
+		course.status = status;
+		await this.courseRepository.save(course);
+		
+		return course;
+		
+	}
 
 }

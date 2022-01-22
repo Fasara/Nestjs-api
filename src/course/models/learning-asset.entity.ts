@@ -5,7 +5,7 @@ import { Course } from "./course.entity";
 export class LearningAsset {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id: string;
 
     @Column()
     video: string;

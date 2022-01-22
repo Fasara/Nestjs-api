@@ -19,7 +19,7 @@ export class CourseController {
     
 
     @Get('/:id')
-    getCourseById(@Param('id') id: number): Promise<Course> {
+    getCourseById(@Param('id') id: string): Promise<Course> {
         return this.courseService.getCourseById(id);
     }
 
@@ -29,21 +29,19 @@ export class CourseController {
     }
 
     @Delete('/:id')
-    deleteCourse(@Param('id') id: number): Promise<void> {
+    deleteCourse(@Param('id') id: string): Promise<void> {
         return this.courseService.deleteCourse(id);
     }
 
-    // @Patch('/:id/status')
-    // updateCourse(
-    //     @Param('id') id: number, 
-    //     @Body() updateCourseDto: UpdateCourseDto): Promise<Course> {
-    //         const { status } = updateCourseDto;
-    //         return this.courseService.updateCourse(id, status);
-    // }
+    @Patch('/:id/status')
+    updateCourse(
+        @Param('id') id: string, 
+        @Body() updateCourseDto: UpdateCourseDto): Promise<Course> {
+            const { status } = updateCourseDto;
+            return this.courseService.updateCourse(id, status);
+    }
 }
 
-// Get all courses - done
-// Delete course - done
-// Create course - done
-// Get coure by ID - done
+// Update course id and status - not working, it gives me 404
+// To-do => if create course has the same title throw an error
 

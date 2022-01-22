@@ -11,11 +11,16 @@ import { CourseStatus } from '../models/course-status.enum';
 export class CourseService {
 
 	constructor(
-		@InjectRepository(CourseRepository) private courseRepository: CourseRepository
+		@InjectRepository(CourseRepository)
+		private courseRepository: CourseRepository,
 	) { }
 
 
-	async getCourseById(id: number): Promise<Course> {
+	getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<Course[]> {
+	    return this.courseRepository.find(findCourseResponseDto);
+	}
+
+	async getCourseById(id: string): Promise<Course> {
 		const courseId = await this.courseRepository.findOne(id);
 
 		if(!courseId) {
@@ -29,19 +34,14 @@ export class CourseService {
 		return this.courseRepository.createNewCourse(createCourseDto);
 	}
 
-	getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<Course[]> {
-	    return this.courseRepository.find(findCourseResponseDto);
-	}
-
-	async deleteCourse(id: number): Promise<void> {
+	async deleteCourse(id: string): Promise<void> {
 		const result = await this.courseRepository.delete(id);
-
 		if(result.affected === 0) {
 			throw new NotFoundException(`Task with ID ${id} not found`);
 		}
 	}
 
-	async updateCourse(id: number, status: CourseStatus): Promise<Course> {
+	async updateCourse(id: string, status: CourseStatus): Promise<Course> {
 		const course = await this.getCourseById(id);
 
 		course.status = status;

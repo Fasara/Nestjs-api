@@ -1,5 +1,5 @@
 export class CreateCourseDto {
-    id: number
+    id: string;
     title: string;
     status?: string;
 }

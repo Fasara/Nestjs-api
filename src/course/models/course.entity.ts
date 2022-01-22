@@ -6,7 +6,7 @@ import { LearningAsset } from "./learning-asset.entity";
 export class Course {
 
 	@PrimaryGeneratedColumn()
-	id: number;
+	id: string;
 
 	@Column()
 	title: string;

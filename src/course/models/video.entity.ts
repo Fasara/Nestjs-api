@@ -11,5 +11,5 @@ export class VideoEntity {
     title: string;
 
     @Column()
-    url: 'text';
+    url: 'varchar';
 }

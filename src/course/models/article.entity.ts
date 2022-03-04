@@ -11,5 +11,5 @@ export class ArticleEntity {
     title: string;
 
     @Column()
-    url: 'text';
+    url: 'varchar';
 }

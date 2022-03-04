@@ -1,6 +1,7 @@
 import { ValidationTypes } from "class-validator";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, ManyToOne } from "typeorm";
 import { LearningAsset } from "./learning-asset.entity";
+import { VideoEntity } from "./video.entity";
 
 @Entity()
 export class Course {
@@ -14,7 +15,7 @@ export class Course {
 	@Column()
 	status: string;
 
-	@ManyToOne(() => LearningAsset, video => video.video )
-	videos: LearningAsset[];
+	// @ManyToOne(() => VideoEntity, video => video.video )
+	// videos: LearningAsset[];
 		
 }

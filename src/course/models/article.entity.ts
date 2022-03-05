@@ -8,8 +8,11 @@ export class ArticleEntity {
     id: string;
 
     @Column()
+    name: string;
+
+    @Column()
     title: string;
 
     @Column()
-    url: 'varchar';
+    url: 'text';
 }

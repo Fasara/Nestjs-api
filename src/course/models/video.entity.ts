@@ -8,8 +8,11 @@ export class VideoEntity {
     id: string;
 
     @Column()
+    name: string;
+
+    @Column()
     title: string;
 
     @Column()
-    url: 'varchar';
+    url: 'text';
 }

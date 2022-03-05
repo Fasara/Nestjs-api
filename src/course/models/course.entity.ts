@@ -1,6 +1,5 @@
 import { ValidationTypes } from "class-validator";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, ManyToOne } from "typeorm";
-import { LearningAsset } from "./learning-asset.entity";
 import { VideoEntity } from "./video.entity";
 
 @Entity()
@@ -10,7 +9,7 @@ export class Course {
 	id: string;
 
 	@Column()
-	title: string;
+	name: string;
 
 	@Column()
 	status: string;

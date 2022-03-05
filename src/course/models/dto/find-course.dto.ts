@@ -4,7 +4,7 @@ export class FindCourseResponseDto {
     id: string;
 
     @IsNotEmpty()
-    title: string;
+    name: string;
 
     @IsNotEmpty()
     @IsOptional()

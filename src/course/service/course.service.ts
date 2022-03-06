@@ -1,6 +1,6 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ConsoleLogger, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Course } from '../models/course.entity';
+import { CourseEntity } from '../models/course.entity';
 import { CourseRepository } from '../models/course.repository';
 import { FindCourseResponseDto } from '../models/dto/find-course.dto';
 import { CreateCourseDto } from '../models/dto/create-course.dto';
@@ -16,11 +16,11 @@ export class CourseService {
 	) { }
 
 
-	getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<Course[]> {
+	getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<CourseEntity[]> {
 	    return this.courseRepository.find(findCourseResponseDto);
 	}
 
-	async getCourseById(id: string): Promise<Course> {
+	async getCourseById(id: string): Promise<CourseEntity> {
 		const courseId = await this.courseRepository.findOne(id);
 
 		if(!courseId) {
@@ -30,7 +30,7 @@ export class CourseService {
 		return courseId;
 	}
 
-	createNewCourse(createCourseDto: CreateCourseDto): Promise<Course> {
+	createNewCourse(createCourseDto: CreateCourseDto): Promise<CourseEntity> {
 		return this.courseRepository.createNewCourse(createCourseDto);
 	}
 
@@ -41,12 +41,13 @@ export class CourseService {
 		}
 	}
 
-	async updateCourse(id: string, status: CourseStatus): Promise<Course> {
+	async updateCourse(id: string, status: CourseStatus): Promise<CourseEntity> {
 		const course = await this.getCourseById(id);
 
 		course.status = status;
 		await this.courseRepository.save(course);
 		
+		console.log('-----', course)
 		return course;
 		
 	}

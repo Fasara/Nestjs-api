@@ -7,7 +7,6 @@ export class VideoEntity {
     @PrimaryGeneratedColumn()
     id: string;
 
-    @ManyToOne(() => CourseEntity, (course: CourseEntity) => course.name)
     @Column()
     name: string;
 
@@ -16,4 +15,7 @@ export class VideoEntity {
 
     @Column()
     url: 'text';
+
+    @ManyToOne(() => CourseEntity, course => course.name)
+    course: CourseEntity;
 }

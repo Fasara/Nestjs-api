@@ -29,7 +29,7 @@ export class CourseService {
 	
 		return courseId;
 	}
-
+	
 	createNewCourse(createCourseDto: CreateCourseDto): Promise<CourseEntity> {
 		return this.courseRepository.createNewCourse(createCourseDto);
 	}
@@ -47,7 +47,6 @@ export class CourseService {
 		course.status = status;
 		await this.courseRepository.save(course);
 		
-		console.log('-----', course)
 		return course;
 		
 	}

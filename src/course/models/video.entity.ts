@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, ManyToOne, JoinColumn } from "typeorm";
 import { CourseEntity } from "./course.entity";
 
 
-@Entity('video')
+@Entity({ name: 'videos' })
 export class VideoEntity {
     @PrimaryGeneratedColumn()
     id: string;
@@ -16,6 +16,7 @@ export class VideoEntity {
     @Column()
     url: 'text';
 
-    @ManyToOne(() => CourseEntity, course => course.name)
-    course: CourseEntity;
+    @ManyToOne(() => CourseEntity, (course: CourseEntity)=> course.videos)
+    @JoinColumn({ name: 'course_id' })
+    course: CourseEntity;// this defines the proeprty name
 }

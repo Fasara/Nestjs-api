@@ -1,5 +1,6 @@
 import { ValidationTypes } from "class-validator";
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, ManyToOne, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
+import { ArticleEntity } from "./article.entity";
 import { VideoEntity } from "./video.entity";
 
 @Entity('course')
@@ -14,7 +15,9 @@ export class CourseEntity {
 	@Column()
 	status: string;
 
-	@OneToMany(() => VideoEntity, video => video.name)
-	videos: VideoEntity[];
+	@OneToMany(() => VideoEntity, (video: VideoEntity) => video.course)
+	videos: Array<VideoEntity>;
 	//we define the type first (VideoEntity) and what does it map to on the other table
+	@OneToMany(() => ArticleEntity, (article: ArticleEntity) => article.course)
+	articles: Array<ArticleEntity>;
 }

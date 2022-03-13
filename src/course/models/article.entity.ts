@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, ManyToOne, JoinColumn } from "typeorm";
 import { CourseEntity } from "./course.entity";
 
 
@@ -15,4 +15,8 @@ export class ArticleEntity {
 
     @Column()
     url: 'text';
+
+    @ManyToOne(() => CourseEntity, (course: CourseEntity)=> course.articles)
+    @JoinColumn({ name: 'course_id'})
+    course: CourseEntity;
 }

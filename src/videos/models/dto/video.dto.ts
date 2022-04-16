@@ -1,6 +1,9 @@
 export class Videos {
-    constructor(
-        public id: number,
-        public name: string
-    ){}
+     id: number;
+     name: string;
+}
+
+export class AddVideo {
+    title: string;
+    url: string;
 }

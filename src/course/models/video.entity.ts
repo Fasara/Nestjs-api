@@ -18,5 +18,5 @@ export class VideoEntity {
 
     @ManyToOne(() => CourseEntity, (course: CourseEntity)=> course.videos)
     @JoinColumn({ name: 'course_id' })
-    course: CourseEntity;// this defines the proeprty name
+    course: CourseEntity;// this defines the property name
 }

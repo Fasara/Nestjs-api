@@ -4,8 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CourseService } from './service/course.service';
 import { CourseController } from './controller/course.controller';
 import { CourseRepository  } from './models/course.repository';
-import { VideosController } from 'src/videos/controller/videos.controller';
-import { VideosService } from 'src/videos/service/videos.service';
+import { VideosController } from '../videos/controller/videos.controller';
+import { VideosService } from '../videos/service/videos.service';
 
 
 @Module({

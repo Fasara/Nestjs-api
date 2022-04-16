@@ -3,8 +3,9 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, ManyToOn
 
 
 
-@Entity({ name: 'video' })
+@Entity('video')
 export class VideoEntity {
+    
     @PrimaryGeneratedColumn()
     id: string;
 

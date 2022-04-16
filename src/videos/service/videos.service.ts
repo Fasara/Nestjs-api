@@ -1,25 +1,15 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Videos } from '../models/dto/video.dto';
+import { VideosRepository } from '../models/videos.repository';
+import { VideoEntity } from '../models/video.entity';
 @Injectable()
 export  class VideosService {
-    //constructor(){}
-    private readonly videos: Videos[] = [
-        {
-            id: 1,
-            name: 'videoOne'
-        },
-        {
-            id: 2,
-            name: 'videoTwo'
-        },
-        {
-            id: 3,
-            name: 'videoThree'
-        }
-    ];
+    constructor(@InjectRepository(VideosRepository)
+    private videosRepository: VideosRepository,
+    ) { }
 
-    getAllVideos(): Videos[]{
-        return this.videos;
-    }
+    getAllVideos(findVideos: Videos): Promise<VideoEntity[]> {
+	    return this.videosRepository.find(findVideos);
+	}
 }

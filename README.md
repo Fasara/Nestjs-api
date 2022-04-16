@@ -36,7 +36,7 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
+$ docker compose up
 
 # watch mode
 $ npm run start:dev
@@ -57,6 +57,22 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+## Branch
+No more working directly in the `main` branch, I woul dlike to keep history of the changes as it helps me to catchup with issues more easily as I don't work on this project on a daily basis and it's so easy to forget where I left off.
+Branch naming convention:
+`story` for features
+`bug` for bugs
+
+The `NP` prefixes the number of the ticket which stands for `Nest Project`.
+
+For instance:
+
+`story/NP-01` 
+
+`bug/NP-01`
+
+
+
 
 ## Support
 

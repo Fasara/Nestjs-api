@@ -25,8 +25,6 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-🚧
-<img src="workflow.png" />
 
 ## Installation
 
@@ -73,7 +71,9 @@ For instance:
 
 `bug/NP-01`
 
-
+## Workflow of the app - the diagram is still in progress
+<p>🚧</p>
+<img src="workflow.png" />
 
 
 ## Support

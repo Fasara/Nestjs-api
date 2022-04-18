@@ -1,11 +1,5 @@
-export class Videos {
-     id: number;
-     name: string;
-     title: string;
-     url: string;
-}
-
-export class AddVideoDto {
-    title: string;
+export class FilterVideoDto {
+    id: number;
+    name: string;
     url: string;
 }

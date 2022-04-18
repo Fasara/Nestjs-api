@@ -1,4 +1,3 @@
-import { ValidationTypes } from "class-validator";
 import { VideoEntity } from "../../videos/models/video.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
 import { ArticleEntity } from "./article.entity";

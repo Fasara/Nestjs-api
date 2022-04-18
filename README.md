@@ -71,8 +71,9 @@ For instance:
 
 `bug/NP-01`
 
-## Workflow of the app - the diagram is still in progress
-<p>🚧</p>
+## Workflow of the app
+
+#### The diagram is still in progress 🚧
 <img src="workflow.png" />
 
 

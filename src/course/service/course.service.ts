@@ -2,10 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CourseEntity } from '../models/course.entity';
 import { CourseRepository } from '../models/course.repository';
-import { FindCourseResponseDto } from '../models/dto/find-course.dto';
-import { CreateCourseDto } from '../models/dto/create-course.dto';
+import { CreateCourseDto, UpdateCourseDto, FindCourseResponseDto } from '../models/dto/course.dto';
 import { CourseStatus } from '../models/course-status.enum';
-
 
 @Injectable()
 export class CourseService {
@@ -15,11 +13,10 @@ export class CourseService {
 		private courseRepository: CourseRepository,
 	) { }
 
-
-	getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<CourseEntity[]> {
-	    return this.courseRepository.find(findCourseResponseDto);
+	getAllCourses() {
+	    return this.courseRepository.find();
 	}
-
+	
 	async getCourseById(id: string): Promise<CourseEntity> {
 		const courseId = await this.courseRepository.findOne(id);
 
@@ -29,9 +26,18 @@ export class CourseService {
 	
 		return courseId;
 	}
+
+
+	async createNewCourse(createCourseDto: CreateCourseDto): Promise<CourseEntity> {
+		const { id, name, status } = createCourseDto;
+		const course = this.courseRepository.create({
+			id,
+			name,
+			status: CourseStatus.OPEN
+		});
+		
+		return await this.courseRepository.save(course);
 	
-	createNewCourse(createCourseDto: CreateCourseDto): Promise<CourseEntity> {
-		return this.courseRepository.createNewCourse(createCourseDto);
 	}
 
 	async deleteCourse(id: string): Promise<void> {
@@ -41,8 +47,20 @@ export class CourseService {
 		}
 	}
 
-	async updateCourse(id: string, status: CourseStatus): Promise<CourseEntity> {
-		const course = await this.getCourseById(id);
+	// async updateCourse(updateCourseDto: UpdateCourseDto): Promise<CourseEntity> {
+	// 	const course = await this.courseRepository.;
+
+	// 	if(!course) {
+	// 		throw new NotFoundException(`Course id not found`)
+	// 	}
+
+	// 	return this.courseRepository.save(course);
+		
+	// }
+
+	async updateCourse(updateCourseDto: UpdateCourseDto): Promise<CourseEntity> {
+		const course = await this.getCourseById(updateCourseDto.id);
+	
 
 		course.status = status;
 		await this.courseRepository.save(course);

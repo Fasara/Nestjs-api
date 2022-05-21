@@ -1,4 +1,4 @@
-import { VideoEntity } from "../../videos/models/video.entity";
+import { VideoEntity } from "./video.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
 import { ArticleEntity } from "./article.entity";
 

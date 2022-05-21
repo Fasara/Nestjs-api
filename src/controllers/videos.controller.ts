@@ -1,6 +1,6 @@
 import { Controller, Get, Post} from '@nestjs/common';
-import { FilterVideoDto } from '../models/dto/video.dto';
-import { VideosService } from '../service/videos.service';
+import { FilterVideoDto } from '../core/dtos/video.dto';
+import { VideosService } from '../services/videos.service';
 
 @Controller('videos')
 export class VideosController {

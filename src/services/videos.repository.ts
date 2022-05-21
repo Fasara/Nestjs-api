@@ -1,6 +1,6 @@
-import { FilterVideoDto } from "./dto/video.dto";
+import { FilterVideoDto } from "../core/dtos/video.dto";
 import { EntityRepository, getRepository, Repository } from "typeorm";
-import { VideoEntity } from "./video.entity";
+import { VideoEntity } from "../core/entities/video.entity";
 
 @EntityRepository(VideoEntity)
 export class VideosRepository extends Repository<VideoEntity> {

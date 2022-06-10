@@ -6,7 +6,7 @@ import { CourseController } from './controller/course.controller';
 import { CourseRepository  } from './models/course.repository';
 import { VideosController } from '../videos/controller/videos.controller';
 import { VideosService } from '../videos/service/videos.service';
-import { VideosRepository } from 'src/videos/models/videos.repository';
+import { VideosRepository } from '../videos/models/videos.repository';
 
 
 @Module({

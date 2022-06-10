@@ -9,7 +9,7 @@
 			"request": "attach",
 			"name": "Attach to server",
 			"port": 9229,
-			"restart": true,
+			"restart": false,
 			"sourceMaps": true,
 			"skipFiles": ["<node_internals>/**", "node_modules/**"],
 		}

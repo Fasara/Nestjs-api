@@ -73,7 +73,7 @@ For instance:
 
 ## Workflow of the app
 
-#### The diagram is still in progress 🚧
+#### WiP 🚧
 <img src="workflow.png" />
 
 

@@ -1,4 +1,4 @@
-import { CourseEntity } from "../../course/models/course.entity";
+import { CourseEntity } from "../../courses/models/course.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, ManyToOne, JoinColumn } from "typeorm";
 
 

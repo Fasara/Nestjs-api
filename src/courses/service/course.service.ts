@@ -17,6 +17,7 @@ export class CourseService {
 
 
 	getAllCourses(findCourseResponseDto: FindCourseResponseDto): Promise<CourseEntity[]> {
+		
 	    return this.courseRepository.find(findCourseResponseDto);
 	}
 
@@ -26,7 +27,7 @@ export class CourseService {
 		if(!courseId) {
 			throw new NotFoundException(`Task with ID "${id}" not found`);
 		}
-	
+		
 		return courseId;
 	}
 	
@@ -46,6 +47,7 @@ export class CourseService {
 
 		course.status = status;
 		await this.courseRepository.save(course);
+
 		
 		return course;
 		

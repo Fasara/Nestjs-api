@@ -15,6 +15,9 @@ export class CourseEntity {
 	@Column()
 	status: string;
 
+	@Column()
+	logo_url: 'text';
+
 	@OneToMany(() => VideoEntity, (video: VideoEntity) => video.course)
 	videos: Array<VideoEntity>;
 	//we define the type first (VideoEntity) and what does it map to on the other table

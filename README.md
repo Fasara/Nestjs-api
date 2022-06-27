@@ -74,7 +74,7 @@ For instance:
 ## Workflow of the app
 
 #### WiP 🚧
-<img src="workflow.png" />
+<img src="be-plan.png" />
 
 
 ## Support

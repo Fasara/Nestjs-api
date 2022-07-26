@@ -76,6 +76,7 @@ For instance:
 #### WiP 🚧
 <img src="be-plan.png" />
 
+## Deployment 🚀
 
 ## Support
 

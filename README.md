@@ -22,30 +22,28 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Description 📜
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project is wirtten in [Nest](https://github.com/nestjs/nest) and [TypeScript](https://www.typescriptlang.org/).
 
-## Installation
+## Installation 🪄
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Running the app ⚡️
 
 ```bash
-# development
-$ docker compose up
+`docker compose up` to start up the database
 
-# watch mode
-$ npm run start:dev
+`npm run start:dev` to connect the app to the database in `watch` mode
 
 # production mode
 $ npm run start:prod
 ```
 
-## Test
+## Test 🧪
 
 ```bash
 # unit tests
@@ -59,13 +57,6 @@ $ npm run test:cov
 ```
 
 ## Development 🛠
-#### Getting started:
-Run:
-
-`docker compose up` to start up the database
-
-`npm run start:dev` to connect the app to the database in `watch` mode
-
 
 #### Branch naming convention:
 
@@ -83,7 +74,7 @@ For instance:
 
 `bug/NP-01`
 
-## Workflow of the app
+## Workflow of the app 
 
 #### WiP 🚧
 <img src="be-plan.png" />

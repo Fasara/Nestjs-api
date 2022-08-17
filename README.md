@@ -78,7 +78,6 @@ For instance:
 
 #### WiP 🚧
 <img src="be-plan.png" />
-<img src="demo.drawio.png" />
 
 ## Deployment 🚀
 Coming soon...

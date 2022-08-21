@@ -9,9 +9,9 @@ import { CourseModule } from './courses/course.module';
   imports: [
     ConfigModule.forRoot({ isGlobal: true }), //This line will automatically load the .env file from the root of the project
     TypeOrmModule.forRoot(),
-    CourseModule
+    CourseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

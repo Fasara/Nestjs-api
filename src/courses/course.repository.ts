@@ -1,7 +1,7 @@
 import { EntityRepository, Repository } from "typeorm";
 import { CourseEntity } from "./course.entity";
-import { CourseStatus } from './course-status.enum'; 
-import { CreateCourseDto } from './dto/create-course.dto';
+import { CourseStatus } from './course-status.enum';
+import { CreateCourseDto } from './dtos/create-course.dto';
 
 @EntityRepository(CourseEntity)
 export class CourseRepository extends Repository<CourseEntity> {
@@ -15,7 +15,7 @@ export class CourseRepository extends Repository<CourseEntity> {
 			name,
 			status: CourseStatus.OPEN
 		});
-		
+
 		await this.save(course);
 		return course;
 	}

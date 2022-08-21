@@ -1,11 +1,8 @@
-import { CourseEntity } from "../courses/course.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
+import { CourseEntity } from "src/courses/course.entity";
 
-
-
-@Entity('video')
-export class VideoEntity {
-
+@Entity('articles')
+export class ArticleEntity {
     @PrimaryGeneratedColumn()
     id: string;
 
@@ -18,8 +15,8 @@ export class VideoEntity {
     @Column()
     url: 'text';
 
-    @ManyToOne(() => CourseEntity, (course: CourseEntity) => course.videos)
+    @ManyToOne(() => CourseEntity, (course: CourseEntity) => course.articles)
     @JoinColumn({ name: 'course_id' })
-    course: CourseEntity;// this defines the property name
-}
+    course: CourseEntity;
 
+}

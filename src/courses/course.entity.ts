@@ -1,6 +1,6 @@
 import { VideoEntity } from "../videos/video.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
-import { ArticleEntity } from "../articles/dto/article.entity";
+import { ArticleEntity } from "../articles/article.entity";
 
 
 @Entity('course')

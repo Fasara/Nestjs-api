@@ -8,11 +8,12 @@ export class VideosService {
     private readonly videosRepository: VideosRepository,
     ) { }
 
-    findAllVideos(filterVideos: FilterVideoDto) {
+    findAllVideos() {
         const myApiKey = process.env.YOUTUBE_API_KEY;
         const baseUrl = process.env.BASE_API_URL;
-        //const videos = service.videos()
-        const response = `${baseUrl}/videos?key=${myApiKey}&type=video&part=q`;
+        const response = `${baseUrl}/videos?key=${myApiKey}&type=video&part=q, snippet, thumbnail`;
+
+        console.log(response);
         // const getVideos = get(response);
         // return response.data.items;
 

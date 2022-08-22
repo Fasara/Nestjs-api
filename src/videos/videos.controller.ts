@@ -6,4 +6,9 @@ import { VideosService } from './videos.service';
 export class VideosController {
     constructor(private readonly videosService: VideosService) { }
 
+    @Get()
+    getVideos() {
+        return this.videosService.findAllVideos()
+    }
+
 }

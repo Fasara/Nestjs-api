@@ -8,7 +8,7 @@ export class VideosController {
 
     @Get()
     getVideos() {
-        return this.videosService.findAllVideos()
+        return this.videosService.getVideos()
     }
 
 }

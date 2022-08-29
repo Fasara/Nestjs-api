@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Param, Body, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Param, Body, Delete, Query } from '@nestjs/common';
 
 //Services
 import { CourseService } from './course.service';
@@ -19,7 +19,8 @@ export class CourseController {
 
 
     @Get('/:id')
-    getCourseById(@Param('id') id: string): Promise<CourseEntity> {
+    getCourseById(
+        @Param('id') id: string): Promise<CourseEntity> {
         return this.courseService.getCourseById(id);
     }
 

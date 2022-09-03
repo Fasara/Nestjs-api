@@ -1,7 +1,7 @@
 import { IsNotEmpty, IsOptional, } from "class-validator";
 export class FindCourseResponseDto {
 
-    id: string;
+    id: number;
 
     @IsNotEmpty()
     name: string;

@@ -20,11 +20,11 @@ export class CourseService {
 		return this.courseRepository.find(findCourseResponseDto);
 	}
 
-	async getCourseById(id: string): Promise<CourseEntity> {
+	async getCourseById(id: number): Promise<CourseEntity> {
 		const courseId = await this.courseRepository.findOne(id);
 
 		if (!courseId) {
-			throw new NotFoundException(`Task with ID "${id}" not found`);
+			throw new NotFoundException(`Course with ID "${id}" not found`);
 		}
 
 		return courseId;
@@ -34,14 +34,14 @@ export class CourseService {
 		return this.courseRepository.createNewCourse(createCourseDto);
 	}
 
-	async deleteCourse(id: string): Promise<void> {
+	async deleteCourse(id: number): Promise<void> {
 		const result = await this.courseRepository.delete(id);
 		if (result.affected === 0) {
 			throw new NotFoundException(`Task with ID ${id} not found`);
 		}
 	}
 
-	async updateCourse(id: string, status: CourseStatus): Promise<CourseEntity> {
+	async updateCourse(id: number, status: CourseStatus): Promise<CourseEntity> {
 		const course = await this.getCourseById(id);
 
 		course.status = status;

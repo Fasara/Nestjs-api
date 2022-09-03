@@ -16,7 +16,7 @@ export class VideoEntity {
     title: string;
 
     @Column()
-    url: 'text';
+    url_id: string;
 
     @ManyToOne(() => CourseEntity, (course: CourseEntity) => course.videos)
     @JoinColumn({ name: 'course_id' })

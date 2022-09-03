@@ -5,9 +5,8 @@ import { VideoEntity } from "./video.entity";
 @EntityRepository(VideoEntity)
 export class VideosRepository extends Repository<VideoEntity> {
 
-    // async getAllVideos(filterAllVideos: FilterVideoDto): Promise<VideoEntity> {
-    //     const videos = await this.find(filterAllVideos);
-    //     return videos;
+    // async getAllVideos(filterVideos: FilterVideoDto): Promise<VideoEntity> {
+
     // }
 
 }

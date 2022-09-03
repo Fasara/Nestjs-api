@@ -20,7 +20,7 @@ export class CourseController {
 
     @Get('/:id')
     getCourseById(
-        @Param('id') id: string): Promise<CourseEntity> {
+        @Param('id') id: number): Promise<CourseEntity> {
         return this.courseService.getCourseById(id);
     }
 
@@ -30,13 +30,13 @@ export class CourseController {
     }
 
     @Delete('/:id')
-    deleteCourse(@Param('id') id: string): Promise<void> {
+    deleteCourse(@Param('id') id: number): Promise<void> {
         return this.courseService.deleteCourse(id);
     }
 
     @Patch('/:id/status')
     updateCourse(
-        @Param('id') id: string,
+        @Param('id') id: number,
         @Body() updateCourseDto: UpdateCourseDto): Promise<CourseEntity> {
         const { status } = updateCourseDto;
         return this.courseService.updateCourse(id, status);

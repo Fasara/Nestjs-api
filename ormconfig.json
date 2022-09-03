@@ -5,8 +5,9 @@
     "username": "root",
     "password": "password",
     "database": "fabidatabase",
-    "entities": ["dist/**/*.entity{.ts,.js}"],
-    "synchronize": false,
+    "entities": [
+        "dist/**/*.entity{.ts,.js}"
+    ],
+    "synchronize": true,
     "migrationsRun": false
-
 }

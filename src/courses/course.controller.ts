@@ -24,10 +24,10 @@ export class CourseController {
         return this.courseService.getCourseById(id);
     }
 
-    @Post()
-    addCourse(@Body() createCourseDto: CreateCourseDto): Promise<CourseEntity> {
-        return this.courseService.createNewCourse(createCourseDto);
-    }
+    // @Post()
+    // addCourse(@Body() createCourseDto: CreateCourseDto): Promise<CourseEntity> {
+    //     return this.courseService.createNewCourse(createCourseDto);
+    // }
 
     @Delete('/:id')
     deleteCourse(@Param('id') id: number): Promise<void> {

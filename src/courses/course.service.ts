@@ -30,9 +30,9 @@ export class CourseService {
 		return courseId;
 	}
 
-	createNewCourse(createCourseDto: CreateCourseDto): Promise<CourseEntity> {
-		return this.courseRepository.createNewCourse(createCourseDto);
-	}
+	// createNewCourse(createCourseDto: CreateCourseDto): Promise<CourseEntity> {
+	// 	return this.courseRepository.createNewCourse(createCourseDto);
+	// }
 
 	async deleteCourse(id: number): Promise<void> {
 		const result = await this.courseRepository.delete(id);

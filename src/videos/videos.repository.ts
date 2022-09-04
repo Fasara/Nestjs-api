@@ -1,4 +1,3 @@
-import { FilterVideoDto } from "./dtos/video.dto";
 import { EntityRepository, getRepository, Repository } from "typeorm";
 import { VideoEntity } from "./video.entity";
 

@@ -8,6 +8,12 @@
     "entities": [
         "dist/**/*.entity{.ts,.js}"
     ],
-    "synchronize": true,
-    "migrationsRun": false
+    "synchronize": false,
+    "migrationsRun": true,
+    "migrations": [
+        "dist/migrations*{.ts, .js}"
+    ],
+    "cli": {
+        "migrationsDir": "src/migrations"
+    }
 }

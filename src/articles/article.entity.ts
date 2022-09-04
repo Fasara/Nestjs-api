@@ -13,7 +13,7 @@ export class ArticleEntity {
     title: string;
 
     @Column()
-    url: 'text';
+    url_id: string;
 
     @ManyToOne(() => CourseEntity, (course: CourseEntity) => course.articles)
     @JoinColumn({ name: 'course_id' })

@@ -7,11 +7,8 @@ import { CreateCourseDto } from './dtos/create-course.dto';
 export class CourseRepository extends Repository<CourseEntity> {
 
 	async createNewCourse(createCourseDto: CreateCourseDto): Promise<CourseEntity> {
-		const { id, name, status } = createCourseDto;
-		//create the course and return it. This is how you create a course based on the repository
-		//you need to provide an object with the same properties of the entity 
+		const { name, status } = createCourseDto;
 		const course = this.create({
-			id,
 			name,
 			status: CourseStatus.OPEN
 		});

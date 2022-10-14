@@ -1,5 +1,5 @@
 export class CreateCourseDto {
-    id: number;
     name: string;
+    logo_url: string;
     status?: string;
 }

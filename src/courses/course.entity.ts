@@ -15,7 +15,7 @@ export class CourseEntity {
 	@Column()
 	status: string;
 
-	@Column()
+	@Column({ nullable: true })
 	logo_url: 'text';
 
 	@OneToMany(() => VideoEntity, (video: VideoEntity) => video.course)

@@ -1,12 +1,11 @@
-import { IsNotEmpty, IsOptional, } from "class-validator";
+import { IsNotEmpty, IsOptional } from 'class-validator';
 export class FindCourseResponseDto {
+  id: number;
 
-    id: number;
+  @IsNotEmpty()
+  name: string;
 
-    @IsNotEmpty()
-    name: string;
-
-    @IsNotEmpty()
-    @IsOptional()
-    status?: string;
+  @IsNotEmpty()
+  @IsOptional()
+  status?: string;
 }

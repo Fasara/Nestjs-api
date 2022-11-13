@@ -6,27 +6,26 @@ import { FilterVideoDto } from './dtos/video.dto';
 
 @Injectable()
 export class VideosService {
-    constructor(@InjectRepository(VideosRepository)
-    private readonly videosRepository: VideosRepository,) { }
+  constructor(
+    @InjectRepository(VideosRepository)
+    private readonly videosRepository: VideosRepository,
+  ) {}
 
-    getVideos(): Promise<VideoEntity[]> {
-        return this.videosRepository.find()
-    }
+  getVideos(): Promise<VideoEntity[]> {
+    return this.videosRepository.find();
+  }
 
-    getVideoById(id: number): Promise<VideoEntity> {
-        return this.videosRepository.findOne({
-            where: { id }
-        });
-    }
+  getVideoById(id: number): Promise<VideoEntity> {
+    return this.videosRepository.findOne({
+      where: { id },
+    });
+  }
 
-    async addNewVideo(filterVideoDto: FilterVideoDto): Promise<VideoEntity> {
-        return await this.videosRepository.save(filterVideoDto);
-    }
+  async addNewVideo(filterVideoDto: FilterVideoDto): Promise<VideoEntity> {
+    return await this.videosRepository.save(filterVideoDto);
+  }
 
-    async deleteVideo(id: number): Promise<void> {
-        await this.videosRepository.delete(id);
-    }
-
-
+  async deleteVideo(id: number): Promise<void> {
+    await this.videosRepository.delete(id);
+  }
 }
-
